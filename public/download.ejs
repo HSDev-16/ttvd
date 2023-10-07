@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTVD - Download Video</title>
+  <style type="text/css" media="all">
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container{
+      box-shadow: 0 0 10px #42505AA8;
+      width: 300px;
+      border-radius: 10px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container div{
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .container div img{
+      box-shadow: 0 0 2px #00000078;
+      width: 70px;
+      height: 70px;
+      margin-left: 10px;
+      border-radius: 10px;
+    }
+    .container div div{
+      margin-top: 0;
+      margin-left: 10px;
+      display: block;
+    }
+    video{
+      width: 200px;
+    }
+    a{
+      text-decoration: none;
+      background-color: #42505A;
+      color: #fff;
+      height: 30px;
+      width: 100px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <img src="<%= url.thumbnail%>" alt="p">
+      <div
+<% var teks = url.title; %>
+<% var indeksSpasi = teks.indexOf(" "); %>>
+        <h5>username: <%= teks.substring(0, indeksSpasi)%></h5>
+        <h5>Coment: <%= info.Comments%></h5>
+        <h5>Like: <%= info.Likes%></h5>
+      </div>
+    </div>
+    <br>
+    <video id="myVideo" autoplay muted>
+      <source src="<%= url.video%>" type="video/mp4">
+    </video>
+    <br>
+    <a href="<%= url.video%>" download="video.mp4">Download</a>
+    <br>
+  </div>
+<script>
+    // Dapatkan elemen video
+    var video = document.getElementById("myVideo");
+
+    // Set timeout untuk menjeda video setelah 1 detik
+    setTimeout(function() {
+      video.pause();
+    }, 500);
+  </script>
+</body>
+
+</html>
